@@ -107,6 +107,7 @@ end
 module Elmas
   class OauthResponse < Response
     def body
+      @response.inspect
       JSON.parse(@response.body)
     end
 
