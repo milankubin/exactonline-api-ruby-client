@@ -15,7 +15,9 @@ module Elmas
       allow_access(agent)
 
       code = URI.unescape(agent.page.uri.query.split("=").last)
-      OauthResponse.new(get_access_token(code))
+      puts code
+      puts get_access_tokenq(code)
+      puts OauthResponse.new(get_access_token(code))
     end
 
     def authorized?
@@ -107,7 +109,6 @@ end
 module Elmas
   class OauthResponse < Response
     def body
-      @response.inspect
       JSON.parse(@response.body)
     end
 
